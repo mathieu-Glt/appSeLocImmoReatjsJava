@@ -1,8 +1,3 @@
-import fs from "fs";
-import path from "path";
-
-// const productsFilePath = path.join(process.cwd(), "data/products.json");
-
 const products = [
   {
     id: 1,

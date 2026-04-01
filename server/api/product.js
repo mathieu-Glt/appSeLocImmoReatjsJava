@@ -1,5 +1,5 @@
 // pages/api/products.js
-import products from "../../data/products.json";
+import products from "../products.json";
 
 export default function handler(req, res) {
   const { method, query } = req;

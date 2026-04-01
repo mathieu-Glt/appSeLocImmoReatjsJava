@@ -9,13 +9,13 @@ export const GET_PRODUCTS_FOR_RENTAL = "GET_PRODUCTS_FOR_RENTAL";
 export const GET_PRODUCTS_FOR_BUY = "GET_PRODUCTS_FOR_BUY";
 
 export const getProducts = (num) => {
-    console.log("🚀 ~ getProducts ~ getProducts:")
+    // console.log("🚀 ~ getProducts ~ getProducts:")
     return (dispatch) => {
         return axios 
             .get(`${process.env.REACT_APP_API_URL}/data`)
             // .get('http://localhost:8800/data')
             .then((res) => {
-                console.log("🚀 ~ .then ~ res:", res.data)
+                // console.log("🚀 ~ .then ~ res:", res.data)
                 const array = res.data.slice(0, num)
                 dispatch({ type: GET_PRODUCTS, payload: array })
             })
@@ -24,16 +24,16 @@ export const getProducts = (num) => {
 }
 
 export const getProductById = (id) => {
-    console.log("🚀 ~ getProductById ~ getProductById:")
-    console.log("🚀 ~ getProductById ~ id:", id)
+    // console.log("🚀 ~ getProductById ~ getProductById:")
+    // console.log("🚀 ~ getProductById ~ id:", id)
     const objectId = parseInt(id)
     return (dispatch) => {
         return axios
             .get(`${process.env.REACT_APP_API_URL}/data`)
             .then((res) => {
-                console.log("🚀 ~ .then ~ res:", res.data)
+                // console.log("🚀 ~ .then ~ res:", res.data)
                 const product = res.data.find(item => item.id === objectId)
-                console.log("🚀 ~ .then ~ product:", product)
+                // console.log("🚀 ~ .then ~ product:", product)
                 dispatch({ type: GET_PRODUCTS_BY_ID, payload: product })
             })
             .catch((err) => console.log(err))
@@ -41,14 +41,14 @@ export const getProductById = (id) => {
 }
 
 export const getProductForTypeSale = (nme) => {
-    console.log("🚀 ~ getProductForTypeSale ~ nme:", nme)
+    // console.log("🚀 ~ getProductForTypeSale ~ nme:", nme)
     return (dispatch) => {
         return axios 
             .get(`${process.env.REACT_APP_API_URL}/data`)
             .then((res) => {
             // console.log("🚀 ~ .then ~ res:", res.data)
             const products = res.data.filter(item => item.typeOfSale === nme)
-            console.log("🚀 ~ .then ~ products:", products)
+            // console.log("🚀 ~ .then ~ products:", products)
             dispatch({ type: GET_PRODUCTS_FOR_SALE, payload: products });
 
             })
@@ -59,8 +59,8 @@ export const getProductForTypeSale = (nme) => {
 }
 
 export const getProductsFiltered = (object, count) => {
-    console.log("🚀 ~ getProductsFiltered ~ count:", count)
-    console.log("🚀 ~ getProductsFiltered ~ object:", object)
+    // console.log("🚀 ~ getProductsFiltered ~ count:", count)
+    // console.log("🚀 ~ getProductsFiltered ~ object:", object)
     return (dispatch) => {
       return axios
         .get(`${process.env.REACT_APP_API_URL}/data`)
@@ -84,8 +84,8 @@ export const getProductsFiltered = (object, count) => {
   };  
 
   export const getProductsFilteredMax = (object, count) => {
-    console.log("🚀 ~ getProductsFiltered ~ count:", count)
-    console.log("🚀 ~ getProductsFiltered ~ object:", object)
+    // console.log("🚀 ~ getProductsFiltered ~ count:", count)
+    // console.log("🚀 ~ getProductsFiltered ~ object:", object)
     return (dispatch) => {
       return axios
         .get(`${process.env.REACT_APP_API_URL}/data`)
@@ -116,9 +116,9 @@ export const getProductsOfRental = (num) => {
             .get(`${process.env.REACT_APP_API_URL}/data`)
             // .get('http://localhost:8800/data')
             .then((res) => {
-                console.log("🚀 ~ .then ~ res:", res.data)
+                // console.log("🚀 ~ .then ~ res:", res.data)
                 const products = res.data.filter(item => item.typeOfSale === "louer")
-                console.log("🚀 ~ .then ~ products:", products)
+                // console.log("🚀 ~ .then ~ products:", products)
                 const array = products.slice(0, num)
 
                 dispatch({ type: GET_PRODUCTS_FOR_RENTAL, payload: array });
@@ -133,9 +133,9 @@ export const getProductsOfBuy = (num) => {
           .get(`${process.env.REACT_APP_API_URL}/data`)
           // .get('http://localhost:8800/data')
           .then((res) => {
-              console.log("🚀 ~ .then ~ res:", res.data)
+              // console.log("🚀 ~ .then ~ res:", res.data)
               const products = res.data.filter(item => item.typeOfSale === "achat")
-              console.log("🚀 ~ .then ~ products:", products)
+              // console.log("🚀 ~ .then ~ products:", products)
               const array = products.slice(0, num)
 
               dispatch({ type: GET_PRODUCTS_FOR_BUY, payload: array });

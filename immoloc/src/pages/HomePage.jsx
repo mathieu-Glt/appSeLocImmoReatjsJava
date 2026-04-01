@@ -18,9 +18,9 @@ function HomePage() {
     const productsData = useSelector(state => state.imoReducer)?.products
     const productsSale = useSelector(state => state.imoReducer)?.productOfSale
     const productsFilter = useSelector(state => state.imoReducer)?.productOfFilter
-    console.log("🚀 ~ HomePage ~ productsFilter:", productsFilter)
-    console.log("🚀 ~ HomePage ~ productsSale:", productsSale)
-    console.log("🚀 ~ ProductList ~ productsData:", productsData)
+    // console.log("🚀 ~ HomePage ~ productsFilter:", productsFilter)
+    // console.log("🚀 ~ HomePage ~ productsSale:", productsSale)
+    // console.log("🚀 ~ ProductList ~ productsData:", productsData)
     const [products, setProducts] = useState([])
     const [loadPost, setLoadPost] = useState(true)
     const [search, setSearch] = useState(false)
@@ -36,31 +36,32 @@ function HomePage() {
     const [commune, setCommune] = useState('')
     // console.log("🚀 ~ HomePage ~ selectedIdChangeMax:", selectedIdChangeMax)
     // console.log("🚀 ~ HomePage ~ selectedIdChangeMin:", selectedIdChangeMin)
-    console.log("🚀 ~ HomePage ~ selectedOptionPiece:", selectedOptionPiece)
-    console.log("🚀 ~ HomePage ~ selectedOptionType:", selectedOptionType)
-    console.log("🚀 ~ HomePage ~ selectedOption:", selectedOption)
+    // console.log("🚀 ~ HomePage ~ selectedOptionPiece:", selectedOptionPiece)
+    // console.log("🚀 ~ HomePage ~ selectedOptionType:", selectedOptionType)
+    // console.log("🚀 ~ HomePage ~ selectedOption:", selectedOption)
 
     const [minPrice, setMinPrice] = useState(0);
     const [maxPrice, setMaxPrice] = useState(0);
-    console.log("🚀 ~ HomePage ~ minPrice:", minPrice)
+    // console.log("🚀 ~ HomePage ~ minPrice:", minPrice)
 
     useEffect(() => {
         navigator.geolocation.watchPosition(async (position) => {
             try {
-                console.log("position", position);
+                // console.log("position", position);
                 const { latitude, longitude } = position.coords
                 const response = await fetch(`https://geo.api.gouv.fr/communes?lat=${latitude}&lon=${longitude}&fields=nom,code,codesPostaux,siren,codeEpci,codeDepartement,codeRegion,population&format=json&geometry=centre`)
                 const data = await response.json();
                 // if(data.status === 200) {
-                    console.log("data : ", data);
+                    // console.log("data : ", data);
                     const commune = data[0].codesPostaux[0]
-                    console.log("🚀 ~ navigator.geolocation.watchPosition ~ commune:", commune)
+                    // console.log("🚀 ~ navigator.geolocation.watchPosition ~ commune:", commune)
                     setCommune(commune)
 
                     // }
             } 
             catch (error) {
-                console.log("🚀 ~ navigator.geolocation.watchPosition ~ error:", error)
+                // console.log("🚀 ~ navigator.geolocation.watchPosition ~ error:", error)
+                throw new Error("Error while request : ", error.message)
                 
             }
 
@@ -73,13 +74,13 @@ function HomePage() {
     };
   
     const handleSliderChange = (event) => {
-        console.log("🚀 ~ handleSliderChange ~ event:", event.target.id)
+        // console.log("🚀 ~ handleSliderChange ~ event:", event.target.id)
         setSelectedIdChangeMin(event.target.id)
         setMinPrice(parseInt(event.target.value));
       };
 
       const handleSliderChangeMax = (event) => {
-        console.log("🚀 ~ handleSliderChangeMax ~ event:", event.target.id)
+        // console.log("🚀 ~ handleSliderChangeMax ~ event:", event.target.id)
         setSelectedIdChangeMax(event.target.id)
         setMaxPrice(parseInt(event.target.value));
       };
@@ -116,31 +117,31 @@ function HomePage() {
             
         const handleOptionChange = (event) => {
             setSelectedOption(event.target.value);
-            console.log("Selected option:", event.target.value);
+            // console.log("Selected option:", event.target.value);
         };
 
         const handleSelectChangePiece = (event) => {
             setSelectedOptionPiece(event.target.value);
-            console.log("Selected option:", event.target.value);
+            // console.log("Selected option:", event.target.value);
         };
         
         
         const handleSubmit = (event) => {
           event.preventDefault();
-          console.log("Form submitted. Selected option:", selectedOption);
+        //   console.log("Form submitted. Selected option:", selectedOption);
           dispatch(getProductForTypeSale(selectedOption, count))
         };
         
         const handleSubmitModalLeft = (event) => {
             event.preventDefault();
-            console.log("🚀 ~ HomePage 7887~ product:", product)
+            // console.log("🚀 ~ HomePage 7887~ product:", product)
             if(selectedIdChangeMin === "exampleForm.ControlRangeMin") {
-                console.log("🚀 ~ HomePage ~ selectedIdChangeMin:", selectedIdChangeMin)
+                // console.log("🚀 ~ HomePage ~ selectedIdChangeMin:", selectedIdChangeMin)
                 dispatch(getProductsFiltered(product, count))
                 setSearch(true)
 
             } else if(selectedIdChangeMax === "exampleForm.ControlRangeMax") {
-                console.log("🚀 ~ HomePage ~ selectedIdChangeMax:", selectedIdChangeMax)
+                // console.log("🚀 ~ HomePage ~ selectedIdChangeMax:", selectedIdChangeMax)
                 
                 dispatch(getProductsFilteredMax(product, count))
                 setSearch(true)
@@ -224,8 +225,8 @@ function HomePage() {
         
     })
     
-    console.log("🚀 ~ HomePage ~ selectedOption:", selectedOption)
-    console.log("🚀 ~ HomePage ~ commune:", commune)
+    // console.log("🚀 ~ HomePage ~ selectedOption:", selectedOption)
+    // console.log("🚀 ~ HomePage ~ commune:", commune)
 
     return (
         <>

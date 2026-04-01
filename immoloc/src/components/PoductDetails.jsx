@@ -7,13 +7,13 @@ import Button from 'react-bootstrap/esm/Button';
 import Carousel from 'react-bootstrap/Carousel';
 
 function PoductDetails() {
-    console.log(process.env.REACT_APP_API_URL);
+    // console.log(process.env.REACT_APP_API_URL);
     const dispatch = useDispatch();
     const params = useParams();
     const navigate = useNavigate()
     const id = params.id;
     const product = useSelector(state => state.imoReducer.product);
-    console.log("🚀 ~ PoductDetails ~ product:", product)
+    // console.log("🚀 ~ PoductDetails ~ product:", product)
     const [isLoading, setIsLoading] = useState(true);
     const [index, setIndex] = useState(0);
 

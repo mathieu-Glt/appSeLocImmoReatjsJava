@@ -8,12 +8,12 @@ import * as yup from 'yup';
 import { useState } from 'react';
 
 function FormExample({ handleSubmitModalLeft, commune, post, setPost, handleChange, selectedOptionType, handleSelectChange, handleSelectChangePiece, selectedOptionPiece, minPrice, maxPrice,  handlePriceChange, handleSliderChangeMax, handleSliderChange }) {
-  console.log("🚀 ~ FormExample ~ commune:", commune)
-  console.log("🚀 ~ FormExample ~ handleSelectChange:", handleSelectChange)
-  console.log("🚀 ~ FormExample ~ selectedOptionType:", selectedOptionType)
-  console.log("🚀 ~ FormExample ~ handleSubmitModalLeft:", handleSubmitModalLeft)
-  console.log("🚀 ~ FormExample ~ handleChange:", handleChange)
-  console.log("🚀 ~ FormExample ~ post:", post)
+  // console.log("🚀 ~ FormExample ~ commune:", commune)
+  // console.log("🚀 ~ FormExample ~ handleSelectChange:", handleSelectChange)
+  // console.log("🚀 ~ FormExample ~ selectedOptionType:", selectedOptionType)
+  // console.log("🚀 ~ FormExample ~ handleSubmitModalLeft:", handleSubmitModalLeft)
+  // console.log("🚀 ~ FormExample ~ handleChange:", handleChange)
+  // console.log("🚀 ~ FormExample ~ post:", post)
   const { Formik } = formik;
 
   const schema = yup.object().shape({

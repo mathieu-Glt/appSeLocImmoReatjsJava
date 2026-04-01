@@ -11,9 +11,9 @@ function ProdductDeatilAchat() {
     const params = useParams();
     const navigate = useNavigate()
     const id = params.id;
-    console.log("🚀 ~ ProdductDeatilAchat ~ id:", id)
+    // console.log("🚀 ~ ProdductDeatilAchat ~ id:", id)
     const product = useSelector(state => state.imoReducer.product);
-    console.log("🚀 ~ ProdductDeatilAchat ~ product:", product)
+    // console.log("🚀 ~ ProdductDeatilAchat ~ product:", product)
     const [isLoading, setIsLoading] = useState(true);
     const [index, setIndex] = useState(0);
 

@@ -12,7 +12,7 @@ function AchatPage() {
     const [isLoading, setIsLoading] = useState(true)
     const dispatch = useDispatch()
     const productsData = useSelector(state => state.imoReducer)?.productOfBuy
-    console.log("🚀 ~ AchatPage ~ productsData:", productsData)
+    // console.log("🚀 ~ AchatPage ~ productsData:", productsData)
 
 
     

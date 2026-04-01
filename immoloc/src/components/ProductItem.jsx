@@ -11,7 +11,7 @@ function ProductItem({ product }) {
     setIsLoading(!isLoading)
   }, [product])
 
-  console.log("🚀 ~ ProductItem ~ products:", product)
+  // console.log("🚀 ~ ProductItem ~ products:", product)
   return (
     <div className=''>
       <li className='card m-2'>

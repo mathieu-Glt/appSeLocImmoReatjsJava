@@ -282,10 +282,8 @@ const products = [
 ];
 
 export default function handler(req, res) {
-  const products = JSON.parse(fs.readFileSync(productsFilePath, "utf8"));
-
-  const { method } = req;
-  const { id } = req.query; // récupère /api/products?id=1 ou /api/products/1
+  const { method, query } = req;
+  const { id } = query;
 
   if (method === "GET") {
     if (id) {
@@ -321,6 +319,6 @@ export default function handler(req, res) {
   //   return res.status(200).json({ message: "Product deleted successfully" });
   // }
 
-  res.setHeader("Allow", ["GET", "POST", "PUT", "DELETE"]);
+  res.setHeader("Allow", ["GET"]);
   res.status(405).end(`Method ${method} Not Allowed`);
 }
